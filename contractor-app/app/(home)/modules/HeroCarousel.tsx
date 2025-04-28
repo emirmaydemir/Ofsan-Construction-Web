@@ -1,5 +1,6 @@
 "use client";
 
+import { Overlay } from "@/components/Overlay";
 import Image from "next/image";
 import React, { useEffect } from "react";
 
@@ -30,6 +31,16 @@ export const HeroCarousel = () => {
             <Image src={img} alt={`Carousel image ${index + 1}`} fill className="object-cover object-center" priority={index === currentImageIndex} />
           </div>
         ))}
+      </div>
+
+      <Overlay />
+
+      <div className="absolute right-4 bottom-4 z-50">
+        <div className="flex gap-2">
+          {images.map((img, i) => (
+            <button key={img} onClick={() => handleImageChange(i)} className={`w-12 h-2 rounded-full transition-all duration-300 shadow ${currentImageIndex === i ? "bg-primary" : "bg-white hover:bg-gray-200"}`}></button>
+          ))}
+        </div>
       </div>
     </>
   );
