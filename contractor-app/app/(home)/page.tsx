@@ -4,6 +4,8 @@ import { AboutUs } from "./modules/AboutUs";
 import { SectionSplit } from "@/components/SectionSplit";
 import { Services } from "@/modules/Services";
 import { Projects } from "@/modules/Projects";
+import { Career } from "./modules/Career";
+import { ContactUs } from "@/modules/ContactUs";
 
 export default function Home() {
   return (
@@ -14,7 +16,9 @@ export default function Home() {
         <AboutUs />
         <Services />
         <Projects />
+        <Career />
       </SectionSplit>
+      <ContactUs />
     </>
   );
 }
