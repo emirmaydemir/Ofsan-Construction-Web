@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
