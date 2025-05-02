@@ -16,21 +16,13 @@ export const Project = ({ title, year, location, images }: ProjectProps) => {
         <Image src={images[0]} alt="project image" fill className="object-cover" />
         <div className="absolute bottom-1 right-1 gap-1">
           <div className="flex gap-1">
-            <div className="flex items-center gap-2 p-2 bg-white">
-              <Image src="/location.png" alt="location" width={24} height={24} />
-              <p className="text-sm">{location}</p>
-            </div>
-
             <LabelWithIcon text={location} icon="/location.png" alt="location" />
             <LabelWithIcon text={year} icon="/calendar.png" alt="calendar" />
-
-            <div className="flex items-center gap-2 p-2 bg-white">
-              <Image src="/calendar.png" alt="calendar" width={24} height={24} />
-              <p className="text-sm">{year}</p>
-            </div>
           </div>
         </div>
       </div>
+
+      <p className="mt-2 text-xl font-semibold">{title}</p>
     </div>
   );
 };
