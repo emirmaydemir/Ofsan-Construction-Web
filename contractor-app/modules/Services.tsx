@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container";
 import { SectionName } from "@/components/SectionName";
+import { Route } from "@/types/route";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
@@ -41,17 +42,17 @@ export const Services = () => {
 const data = [
   {
     title: "GENERAL CONTRACTING",
-    href: "/services/general-contracting",
+    href: Route.GENERAL_CONTRACTING,
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum soluta eius, ex officia magni in illum, quod expedita voluptatibus quia hic consequuntur numquam cum laborum! Officia provident doloribus vel molestias?",
   },
   {
     title: "RENOVATION AND RESTORATION",
-    href: "/services/renovation-and-restoration",
+    href: Route.RENOVATION_AND_RESTORATION,
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum soluta eius, ex officia magni in illum, quod expedita voluptatibus quia hic consequuntur numquam cum laborum! Officia provident doloribus vel molestias?",
   },
   {
     title: "MONOLITHIC CONSTRUCTION",
-    href: "/services/monolithic-construction",
+    href: Route.MONOLITHIC_CONSTRUCTION,
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum soluta eius, ex officia magni in illum, quod expedita voluptatibus quia hic consequuntur numquam cum laborum! Officia provident doloribus vel molestias?",
   },
 ];

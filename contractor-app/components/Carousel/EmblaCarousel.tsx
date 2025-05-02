@@ -18,10 +18,11 @@ type Slide = {
 interface CarouselProps {
   slides: string[] | Slide[];
   options?: EmblaOptionsType;
+  isControlsVisible?: boolean;
 }
 
 const EmblaCarousel: React.FC<CarouselProps> = (props) => {
-  const { slides, options } = props;
+  const { slides, options, isControlsVisible = true } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
@@ -58,18 +59,20 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
         </div>
       </div>
 
-      <div className="embla__controls">
-        <div className="embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
+      {isControlsVisible && (
+        <div className="embla__controls">
+          <div className="embla__buttons">
+            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          </div>
 
-        <div className="embla__dots">
-          {scrollSnaps.map((_, index) => (
-            <DotButton key={index} onClick={() => onDotButtonClick(index)} className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")} />
-          ))}
+          <div className="embla__dots">
+            {scrollSnaps.map((_, index) => (
+              <DotButton key={index} onClick={() => onDotButtonClick(index)} className={"embla__dot".concat(index === selectedIndex ? " embla__dot--selected" : "")} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

@@ -8,6 +8,8 @@ const images = ["/parapija.jpg", "/hero2.jpg", "/hero3.jpg"];
 
 export const HeroCarousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [offset, setOffset] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
 
   const handleImageChange = (newIndex: number) => {
     if (newIndex !== currentImageIndex) {
@@ -23,11 +25,26 @@ export const HeroCarousel = () => {
     return () => clearInterval(intervalId);
   }, [currentImageIndex]);
 
+  useEffect(() => {
+    if (containerRef.current) {
+      const speed = 0.5;
+      containerRef.current.style.transform = `translateY(${offset * speed}px)`;
+    }
+  }, [offset]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <div className="absolute inset-0 overflow-hidden">
+      <div ref={containerRef} className="absolute inset-0 overflow-hidden">
         {images.map((img, index) => (
-          <div key={img} className={`absolute inset-0 transition-all duration-1000 ${index === currentImageIndex ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}>
+          <div key={img} className={`absolute inset-0 transition-all duration-1000 ${index === currentImageIndex ? "opacity-100 scale-105" : "opacity-0 scale-100"}`} style={{ transform: `translateY${(index - currentImageIndex) * 5}%` }}>
             <Image src={img} alt={`Carousel image ${index + 1}`} fill className="object-cover object-center" priority={index === currentImageIndex} />
           </div>
         ))}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 import { HeroCarousel } from "./HeroCarousel";
 import { Badge } from "@/components/Badge";
+import { Route } from "@/types/route";
 
 export const Hero = () => {
   return (
@@ -27,7 +28,7 @@ export const Hero = () => {
         </div>
 
         <div>
-          <Link href="/" className=" inline-block rounded-full p-2 bg-transparent text-white border-2 border-white shadow-lg animate-bounce">
+          <Link href={Route.HOME} className=" inline-block rounded-full p-2 bg-transparent text-white border-2 border-white shadow-lg animate-bounce">
             <FaArrowDown size="24" />
           </Link>
         </div>

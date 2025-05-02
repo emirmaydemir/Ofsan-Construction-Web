@@ -4,7 +4,7 @@ import { Banner } from "@/modules/Banner";
 import Link from "next/link";
 import { Project } from "./components/Project";
 import { Filtering } from "./components/Filtering";
-import { SearchParams } from "@/types/route";
+import { Route, SearchParams } from "@/types/route";
 import { PaginationControl } from "./components/PaginationControl";
 
 export default function ProjectsPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
@@ -44,7 +44,7 @@ export default function ProjectsPage({ searchParams }: { searchParams: { [key: s
           <Filtering years={years} locations={locations} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
             {paginatedProjects.map((project) => (
-              <Link href={`/projects/${project.id}`} key={project.id}>
+              <Link href={`${Route.PROJECTS}/${project.id}`} key={project.id}>
                 <Project {...project} />
               </Link>
             ))}
@@ -57,13 +57,14 @@ export default function ProjectsPage({ searchParams }: { searchParams: { [key: s
   );
 }
 
-const projects = [
+export const projects = [
   {
     id: 1,
     title: "Project 1",
     year: 2021,
     location: "New York",
     images: ["/hero.jpg"],
+    description: "New York'ta gerçekleştirilen yenilikçi bir inşaat projesi.",
   },
   {
     id: 2,
@@ -71,6 +72,7 @@ const projects = [
     year: 2021,
     location: "Los Angeles",
     images: ["/hero2.jpg"],
+    description: "Los Angeles'ta modern bir konut projesi.",
   },
   {
     id: 3,
@@ -78,6 +80,7 @@ const projects = [
     year: 2021,
     location: "Chicago",
     images: ["/hero3.jpg"],
+    description: "Chicago'da sürdürülebilir bir ofis binası.",
   },
   {
     id: 4,
@@ -85,6 +88,7 @@ const projects = [
     year: 2021,
     location: "New York",
     images: ["/hero.jpg"],
+    description: "New York'ta lüks bir apartman kompleksi.",
   },
   {
     id: 5,
@@ -92,6 +96,7 @@ const projects = [
     year: 2021,
     location: "New York",
     images: ["/hero2.jpg"],
+    description: "New York'ta tarihi bir binanın restorasyonu.",
   },
   {
     id: 6,
@@ -99,47 +104,54 @@ const projects = [
     year: 2021,
     location: "New York",
     images: ["/hero3.jpg"],
+    description: "New York'ta yenilikçi bir ticaret merkezi.",
   },
   {
     id: 7,
-    title: "Project 1",
+    title: "Project 7",
     year: 2021,
     location: "New York",
     images: ["/hero.jpg"],
+    description: "New York'ta gerçekleştirilen yenilikçi bir inşaat projesi.",
   },
   {
     id: 8,
-    title: "Project 2",
+    title: "Project 8",
     year: 2021,
     location: "Los Angeles",
     images: ["/hero2.jpg"],
+    description: "Los Angeles'ta modern bir konut projesi.",
   },
   {
     id: 9,
-    title: "Project 3",
+    title: "Project 9",
     year: 2021,
     location: "Chicago",
     images: ["/hero3.jpg"],
+    description: "Chicago'da sürdürülebilir bir ofis binası.",
   },
   {
     id: 10,
-    title: "Project 4",
+    title: "Project 10",
     year: 2021,
     location: "New York",
     images: ["/hero.jpg"],
+    description: "New York'ta lüks bir apartman kompleksi.",
   },
   {
     id: 11,
-    title: "Project 5",
+    title: "Project 11",
     year: 2021,
     location: "New York",
     images: ["/hero2.jpg"],
+    description: "New York'ta tarihi bir binanın restorasyonu.",
   },
   {
     id: 12,
-    title: "Project 6",
+    title: "Project 12",
     year: 2021,
     location: "New York",
     images: ["/hero3.jpg"],
+    description: "New York'ta yenilikçi bir ticaret merkezi.",
   },
 ];

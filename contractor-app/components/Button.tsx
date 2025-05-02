@@ -1,3 +1,4 @@
+import { Route } from "@/types/route";
 import Link from "next/link";
 import React from "react";
 
@@ -8,9 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({ children, ...rest }: ButtonProps) => {
   return (
     <button className="px-16 py-4 bg-primary text-white text-xl w-full md:w-auto" {...rest}>
-      {children ? children : <Link href="/">Contact us</Link>}
+      {children ? children : <Link href={Route.CONTACT}>Contact us</Link>}
     </button>
   );
 };
-
-//TODO: Change button link
