@@ -1,32 +1,25 @@
 import EmblaCarousel from "@/components/Carousel/EmblaCarousel";
 import { Container } from "@/components/Container";
 import { SectionName } from "@/components/SectionName";
+import { fetchProjects } from "@/data/strapi";
+import { Route } from "@/types/route";
 import React from "react";
 
-const data = [
-  {
-    image: "/hero.jpg",
-    title: "Project 1",
-    link: "/project1",
-  },
-  {
-    image: "/hero2.jpg",
-    title: "Project 2",
-    link: "/project2",
-  },
-  {
-    image: "/hero3.jpg",
-    title: "Project 3",
-    link: "/project3",
-  },
-];
+export const Projects = async () => {
+  const data = await fetchProjects();
+  const projects = data
+    .map((p) => ({
+      image: p.images[0].url,
+      title: p.title,
+      link: `${Route.PROJECTS}/${p.id}`,
+    }))
+    .slice(0, 3);
 
-export const Projects = () => {
   return (
     <section>
       <Container>
         <SectionName name="Projects" />
-        <EmblaCarousel slides={data} />
+        <EmblaCarousel slides={projects} />
       </Container>
     </section>
   );

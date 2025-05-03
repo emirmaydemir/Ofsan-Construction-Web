@@ -6,15 +6,25 @@ import { Project } from "./components/Project";
 import { Filtering } from "./components/Filtering";
 import { Route, SearchParams } from "@/types/route";
 import { PaginationControl } from "./components/PaginationControl";
+import { fetchProjects } from "@/data/strapi";
 
-export default function ProjectsPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function ProjectsPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const data = await fetchProjects();
+  const projects = data.map((project) => ({
+    id: project.id,
+    title: project.title,
+    description: project.description,
+    year: project.year,
+    location: project.location,
+    images: project.images.map((image) => image.url),
+  }));
   const page = searchParams[SearchParams.PAGE] ?? "1";
   const perPage = searchParams[SearchParams.PER_PAGE] ?? "6";
   const start = (Number(page) - 1) * Number(perPage);
   const end = start + Number(perPage);
   const totalPages = Math.ceil(projects.length / Number(perPage));
-  const years = [...new Set(projects.map((project) => project.year))];
-  const locations = [...new Set(projects.map((project) => project.location))];
+  const years = Array.from(new Set(projects.map((project) => project.year)));
+  const locations = Array.from(new Set(projects.map((project) => project.location)));
 
   const filteredProjects = projects.filter((project) => {
     const year = searchParams[SearchParams.YEAR];

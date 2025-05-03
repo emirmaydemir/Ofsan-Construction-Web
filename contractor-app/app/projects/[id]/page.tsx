@@ -1,18 +1,29 @@
 import { SectionSplit } from "@/components/SectionSplit";
 import { Banner } from "@/modules/Banner";
-import { projects } from "../page";
 import { ProjectSingle } from "./modules/ProjectSingle";
 import { SimilarProject } from "./modules/SimilarProject";
+import { fetchProjects } from "@/data/strapi";
 
-export default function Work({ params }: { params: { id: string } }) {
-  const project = projects.find((project) => project.id === Number(params.id));
+export default async function Work({ params }: { params: { id: string } }) {
+  const data = await fetchProjects();
+  const project = data.find((p) => p.id === Number(params.id));
 
-  const similarProjects = projects.filter((p) => p.location === project?.location && p.id !== project?.id).slice(0, 3);
+  const similarProjects = data
+    .filter((p) => p.location === project?.location && p.id !== project?.id)
+    .map((p) => ({
+      id: p.id,
+      title: p.title,
+      description: p.description,
+      year: p.year,
+      location: p.location,
+      images: p.images.map((image) => image.url),
+    }))
+    .slice(0, 3);
   return (
     <>
       <Banner />
       <SectionSplit>
-        {project && <ProjectSingle {...project} />}
+        {project && <ProjectSingle title={project.title} description={project.description} year={project.year} location={project.location} images={project.images.map((image) => image.url)} />}
         {similarProjects.length > 0 && <SimilarProject projects={similarProjects} />}
       </SectionSplit>
     </>

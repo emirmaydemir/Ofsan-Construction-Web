@@ -13,7 +13,7 @@ export const Footer = () => {
           <p className="text-xs text-neutral-400 font-semibold">
             &copy; {new Date().getFullYear()}. Made by{" "}
             <a href="https://emiraydemir.com/" target="_blank">
-              emiraydemir.com
+              edanuryildirim.com
             </a>
           </p>
 
