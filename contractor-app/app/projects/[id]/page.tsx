@@ -2,10 +2,9 @@ import { SectionSplit } from "@/components/SectionSplit";
 import { Banner } from "@/modules/Banner";
 import { ProjectSingle } from "./modules/ProjectSingle";
 import { SimilarProject } from "./modules/SimilarProject";
-import { fetchProjects } from "@/data/strapi";
+import data from "@/data/projects.json";
 
-export default async function Work({ params }: { params: { id: string } }) {
-  const data = await fetchProjects();
+export default function Work({ params }: { params: { id: string } }) {
   const project = data.find((p) => p.id === Number(params.id));
 
   const similarProjects = data
