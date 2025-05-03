@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Links } from "./Links";
+import LanguageChanger from "@/components/LanguageChanger";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -42,6 +43,11 @@ export const Navigation = () => {
               <Links handleLinkClick={handleLinkClick} />
             </div>
           </Container>
+          <div className="w-full py-4 border-t">
+            <div className="flex justify-center">
+              <LanguageChanger />
+            </div>
+          </div>
         </div>
       )}
     </>

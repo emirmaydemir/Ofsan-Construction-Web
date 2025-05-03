@@ -6,7 +6,7 @@ import { Project } from "./components/Project";
 import { Filtering } from "./components/Filtering";
 import { Route, SearchParams } from "@/types/route";
 import { PaginationControl } from "./components/PaginationControl";
-import data from "@/data/projects.json";
+import data from "@/locales/tr/projects.json";
 
 export default function ProjectsPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const projects = data.map((project) => ({

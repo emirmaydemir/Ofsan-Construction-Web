@@ -3,6 +3,7 @@ import { SectionSplit } from "@/components/SectionSplit";
 import { Achievement } from "./modules/Achievement";
 import { Services as ServicesSection } from "@/modules/Services";
 import { Projects } from "@/modules/Projects";
+import data from "@/locales/en/projects.json";
 
 export default function Services() {
   return (
@@ -12,7 +13,7 @@ export default function Services() {
       <SectionSplit>
         <Achievement />
         <ServicesSection />
-        <Projects />
+        <Projects data={data} />
       </SectionSplit>
     </>
   );

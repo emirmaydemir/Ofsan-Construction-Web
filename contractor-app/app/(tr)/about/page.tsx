@@ -7,7 +7,7 @@ import { OurManagement } from "./modules/OurManagement";
 import { OurVision } from "./modules/OurVision";
 import { Certificates } from "./modules/Certificates";
 import Link from "next/link";
-import { CoreValues } from "../(home)/modules/CoreValues";
+import { CoreValues } from "../modules/CoreValues";
 
 export default function About() {
   return (

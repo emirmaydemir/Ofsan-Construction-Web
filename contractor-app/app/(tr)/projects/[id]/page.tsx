@@ -2,7 +2,7 @@ import { SectionSplit } from "@/components/SectionSplit";
 import { Banner } from "@/modules/Banner";
 import { ProjectSingle } from "./modules/ProjectSingle";
 import { SimilarProject } from "./modules/SimilarProject";
-import data from "@/data/projects.json";
+import data from "@/locales/tr/projects.json";
 
 export default function Work({ params }: { params: { id: string } }) {
   const project = data.find((p) => p.id === Number(params.id));

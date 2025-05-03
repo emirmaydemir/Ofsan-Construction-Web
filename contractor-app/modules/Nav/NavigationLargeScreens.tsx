@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
 import React, { useEffect } from "react";
 import { Links } from "./Links";
+import LanguageChanger from "@/components/LanguageChanger";
 
 export const NavigationLargeScreens = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -26,7 +27,12 @@ export const NavigationLargeScreens = () => {
       <Container>
         <div className="flex items-center justify-between h-16">
           <Logo />
-          <Links />
+          <div className="flex items-center gap-6">
+            <Links />
+            <div className="ml-auto">
+              <LanguageChanger />
+            </div>
+          </div>
         </div>
       </Container>
     </nav>
