@@ -8,7 +8,6 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
 import Image from "next/image";
-import { StrapiImage } from "../StrapiImage";
 
 type Slide = {
   image: string;
@@ -47,10 +46,10 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
             <div className="embla__slide overflow-hidden" key={`slide${index}`}>
               <div className="embla__slide__number">
                 {typeof slide === "string" ? (
-                  <StrapiImage src={slide} alt="carousel image" fill className="object-cover" />
+                  <Image src={slide} alt="carousel image" fill className="object-cover" />
                 ) : (
                   <Link href={slide.link}>
-                    <StrapiImage src={slide.image} alt="carousel image" fill className="object-cover"></StrapiImage>
+                    <Image src={slide.image} alt="carousel image" fill className="object-cover"></Image>
                     <h3 className="absolute left-8 bottom-4 inline-block text-white bg-gradient-to-r from-black to-transparent p-2">{slide.title}</h3>
                   </Link>
                 )}
