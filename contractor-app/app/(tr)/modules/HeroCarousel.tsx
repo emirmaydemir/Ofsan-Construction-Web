@@ -6,7 +6,11 @@ import React, { useEffect } from "react";
 
 const images = ["/parapija.jpg", "/hero2.jpg", "/hero3.jpg"];
 
-export const HeroCarousel = () => {
+interface HeroCarouselProps {
+  onImageChange: (index: number) => void;
+}
+
+export const HeroCarousel = ({ onImageChange }: HeroCarouselProps) => {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [offset, setOffset] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
@@ -14,6 +18,7 @@ export const HeroCarousel = () => {
   const handleImageChange = (newIndex: number) => {
     if (newIndex !== currentImageIndex) {
       setCurrentImageIndex(newIndex);
+      onImageChange(newIndex); // Bildir
     }
   };
 

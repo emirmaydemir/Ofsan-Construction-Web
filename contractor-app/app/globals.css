@@ -66,7 +66,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 19rem; /* Replaces var(--slide-height) */
+  height: 30rem; /* Replaces var(--slide-height) */
   user-select: none;
 }
 .embla__controls {

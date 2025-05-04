@@ -31,7 +31,7 @@ const data = [
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum soluta eius, ex officia magni in illum, quod expedita voluptatibus quia hic consequuntur numquam cum laborum! Officia provident doloribus vel molestias?",
   },
   {
-    img: "/innovation.png",
+    img: "/excellence.png",
     title: "Innovation",
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum soluta eius, ex officia magni in illum, quod expedita voluptatibus quia hic consequuntur numquam cum laborum! Officia provident doloribus vel molestias?",
   },

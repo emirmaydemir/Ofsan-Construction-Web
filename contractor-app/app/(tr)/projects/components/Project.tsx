@@ -12,7 +12,7 @@ interface ProjectProps {
 export const Project = ({ title, year, location, images }: ProjectProps) => {
   return (
     <div>
-      <div className="relative h-56 w-full transform transition-transform hover:scale-105 hover:opacity-70">
+      <div className="relative h-56 md:h-80 w-full transform transition-transform hover:scale-105 hover:opacity-70">
         <Image src={images[0]} alt="project image" fill className="object-cover" />
         <div className="absolute bottom-1 right-1 gap-1">
           <div className="flex gap-1">
@@ -22,7 +22,7 @@ export const Project = ({ title, year, location, images }: ProjectProps) => {
         </div>
       </div>
 
-      <p className="mt-2 text-xl font-semibold">{title}</p>
+      <p className="mt-2 mb-4 md:mb-0 text-xl font-semibold">{title}</p>
     </div>
   );
 };
