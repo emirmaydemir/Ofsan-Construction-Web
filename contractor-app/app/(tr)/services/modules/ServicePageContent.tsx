@@ -37,8 +37,6 @@ export const ServicePageContent = ({ title, description, image, subtitle }: Serv
             </div>
           </div>
         </Container>
-
-        <Projects />
       </SectionSplit>
     </>
   );
