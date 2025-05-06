@@ -2,10 +2,10 @@ import { SectionName } from "@/components/SectionName";
 import Image from "next/image";
 import React from "react";
 
-export const Certificates = () => {
+export const DealerShip = () => {
   return (
     <div>
-      <SectionName name="REFERANSLAR" id="certificates" />
+      <SectionName name="BAYİLİKLERİMİZİN BAZILARI" id="dealership" />
 
       <p className="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aliquam enim aperiam excepturi exercitationem unde ex recusandae, neque laboriosam tempora nemo suscipit? Voluptate adipisci architecto, officiis dicta dolorum explicabo sunt?</p>
 

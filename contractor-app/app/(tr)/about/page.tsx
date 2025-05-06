@@ -5,9 +5,11 @@ import { CompanyHistory } from "./modules/CompanyHistory";
 import { OurEmployees } from "./modules/OurEmployees";
 import { OurManagement } from "./modules/OurManagement";
 import { OurVision } from "./modules/OurVision";
+import { OurMission } from "./modules/OurMission";
 import { Certificates } from "./modules/Certificates";
 import Link from "next/link";
 import { CoreValues } from "../modules/CoreValues";
+import { DealerShip } from "./modules/DealerShip";
 
 export default function About() {
   return (
@@ -16,14 +18,16 @@ export default function About() {
 
       <SectionSplit>
         <Container>
-          <h1 className="mb-8">ABOUT US</h1>
+          <h1 className="mb-8">HAKKIMIZDA</h1>
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 md:gap-8 relative min-h-screen">
             <div className="space-y-8">
               <CompanyHistory />
               <OurEmployees />
               <OurManagement />
               <OurVision />
+              <OurMission />
               <Certificates />
+              <DealerShip />
             </div>
 
             <div className="relative">
@@ -51,22 +55,30 @@ export default function About() {
 const links = [
   {
     href: "#company-history",
-    text: "Company History",
+    text: "Şirketin Amacı",
   },
   {
     href: "#our-employees",
-    text: "Our Employees",
+    text: "Organizasyon Ekibi",
   },
   {
     href: "#our-management",
-    text: "Our Management",
+    text: "Yönetim Ekibi",
   },
   {
     href: "#our-vision",
-    text: "Our Vision",
+    text: "Vizyon",
+  },
+  {
+    href: "#our-mission",
+    text: "Misyon",
   },
   {
     href: "#certificates",
-    text: "Certificates",
+    text: "Referanslar",
+  },
+  {
+    href: "#dealership",
+    text: "Bayiliklerimizin Bazıları",
   },
 ];
